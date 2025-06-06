@@ -1,0 +1,16 @@
+name: Markdown Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Lint Markdown Files
+        uses: DavidAnson/markdownlint-cli2-action@v13
