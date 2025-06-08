@@ -1,0 +1,19 @@
+name: Markdown Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name:  Run Markdown Linter
+        uses: DavidAnson/markdownlint-cli2-action@v13
+        with:
+          globs: '**/*.md'
